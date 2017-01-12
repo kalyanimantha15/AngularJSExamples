@@ -4,4 +4,4 @@ AngularJS (Binding framework): AngularJS is JS framework, which helps us to bing
 
 $scope, $rootScope, controller, models, expressions and debugging.
 Digestive Cycle, watchers, models.
-Use batherung 
+Use batherung chrome tool to debug the angular code.
