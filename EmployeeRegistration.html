@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<script src="angular.js"></script>
+<script>
+	function Employee($scope, $rootScope){
+		$rootScope.Counter = (($rootScope.Counter || 0) + 1);
+		$scope.EmployeeName = "Kalyani";
+		$scope.EmployeeCode = "1001";
+
+        $scope.Submit = function () {
+            if($scope.EmployeeName.length==0)
+            {
+                alert("Not a proper data");
+            }
+            else
+            {
+                alert("Proper data");
+            }
+        }
+	}
+
+	function EmpAddress($scope){
+		$scope.pincode = "500084";
+		$scope.city = "Hyderabad";
+    }
+
+	var myApp = angular.module("myApp", []);
+	myApp.controller("EmployeeObj", Employee);
+	myApp.controller("EmpAddressObj", EmpAddress);
+
+</script>
+
+<body>
+	<div ng-app="myApp">
+	{{Counter}}
+		 <div id="EmpDetails" ng-controller="EmployeeObj">
+            Employee Name :- <input ng-model="EmployeeName" type="text" id="EmployeeName" value="" /><br />
+            Employee Code :- <input ng-model="EmployeeCode" type="text" id="EmployeeCode" value="" /><br /> <br/>
+ 
+            <input type="button" ng-click="Submit()" name="name" value="Submit"/> <br/> <br/>
+            {{EmployeeName}}<br />
+            {{EmployeeCode}}<br />
+          
+        </div><br />
+
+         <div id="EmpAddress" ng-controller="EmpAddressObj">
+            Pincode :- <input ng-model="pincode" type="text" id="pincode" value="" /><br />
+            City :- <input ng-model="city" type="text" id="city" value="" /><br />
+
+          
+            {{pincode}}<br />
+            {{city}}<br />
+          
+        </div><br />
+      
+	</div>
+
+</body>
