@@ -9,6 +9,7 @@ Use "Batarang" chrome tool to debug the angular code.
 Factory Vs Services:
 ------------------------------------------------------
 The example in "Services and Factory methods" will cover the below concepts.
-Dependency Injection (IOC)
-Factory design pattern and Singleton Design pattern
+  - tightly coupled vs Loosly coupled.
+  - Dependency Injection (IOC)
+  - When to use Factory design pattern and Singleton Design pattern (factory vs services)
 
