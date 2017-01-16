@@ -4,4 +4,11 @@ AngularJS (Binding framework): AngularJS is JS framework, which helps us to bing
 
 $scope, $rootScope, controller, models, expressions and debugging.
 Digestive Cycle, watchers, models.
-Use batherung chrome tool to debug the angular code.
+Use "Batarang" chrome tool to debug the angular code.
+
+Factory Vs Services:
+------------------------------------------------------
+The example in "Services and Factory methods" will cover the below concepts.
+Dependency Injection (IOC)
+Factory design pattern and Singleton Design pattern
+
