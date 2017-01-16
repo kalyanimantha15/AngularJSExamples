@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<script src="angular.js"></script>
+<script src="Customer.js"></script>
+<script src="Utility.js"></script>
+<script>
+   
+    function BindingCode($scope, Factory, UtilityObject) {
+        $scope.Customer = Factory.CreateCustomer(2, UtilityObject);
+        $scope.CustomerAmountColor = "Red";
+        $scope.Utility = UtilityObject;
+        $scope.$watch("Customer.CustomerAmount", function () {
+            if ($scope.Customer.CustomerAmount > 1000) {
+                $scope.CustomerAmountColor = "Green";
+            }
+            else {
+                $scope.CustomerAmountColor = "Blue";
+            }
+        });
+        $scope.Submit = function () {
+            if ($scope.Utility.IsEmpty($scope.Customer.CustomerName))
+            {
+                alert("Not a proper data");
+            }
+            else
+            {
+                alert("Proper data");
+            }
+        }
+    }
+    
+    var myApp = angular.module("myApp", []);
+    myApp.controller("BindingCode", BindingCode);
+    myApp.factory("Factory", Factory);
+    myApp.service("UtilityObject", Utility);
+</script>
+<body>
+    <div ng-app="myApp">  
+        <div id="CustScreen" ng-controller="BindingCode">
+            Welcome to Application {{::Utility.ApplicationName}} and the current version is {{::Utility.ApplicationVersion}}<br />
+            Customer Name :- <input ng-model="Customer.CustomerName" type="text" id="CustomerName" value="" /><br />
+            Customer Code :- <input ng-model="Customer.CustomerCode" type="text" id="CustomerCode" value="" /><br />
+            Customer Amount :- <input style="background-color:{{CustomerAmountColor}}" ng-model="Customer.CustomerAmount" type="text" id="CustomerAmount" value="" /><br /><br />
+            <input type="button" ng-click="Submit()" name="name" value="Submit" /><br />
+            <input type="button" ng-click="Customer.CalculateDiscount()" name="name" value="Discount" /><br />
+            {{::Customer.SalesDateTime}}<br />
+            {{Customer.CustomerName}}<br />
+            {{Customer.CustomerCode}}<br />
+
+        </div><br />
+      
+      
+    </div>
+</body>
+</html>
